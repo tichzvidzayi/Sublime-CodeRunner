@@ -71,8 +71,7 @@ class RunThread(threading.Thread):
 
         run = subprocess.Popen(cmd
                 , bufsize = -1
-                , shell   = True
-                , stdout  = subprocess.PIPE
+                , shell   = False, stdout  = subprocess.PIPE
                 , stderr  = subprocess.PIPE
                 , env     = env)
 
