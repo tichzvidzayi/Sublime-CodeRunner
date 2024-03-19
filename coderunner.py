@@ -6,6 +6,7 @@ import threading
 import math
 import time
 import tempfile
+from security import safe_command
 
 class ThreadProgress():
     """
@@ -69,7 +70,7 @@ class RunThread(threading.Thread):
 
         cmd = self.command.replace("{{file}}", self.path).replace("{{args}}", self.args)
 
-        run = subprocess.Popen(cmd
+        run = safe_command.run(subprocess.Popen, cmd
                 , bufsize = -1
                 , shell   = True
                 , stdout  = subprocess.PIPE
